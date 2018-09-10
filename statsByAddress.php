@@ -25,9 +25,9 @@ echo "link-homedetails: ";
 $homeDetailLink = $data->response->results->result[0]->links->homedetails;
 echo "<a href=$homeDetailLink target='_blank'>$homeDetailLink</a>";
 echo "<br>";
-echo "graphsanddata: ";
-$graphs = $data->response->results->resut[0]->links->graphsanddata;
-echo $graphs;
+echo "comparables: ";
+$comparables = $data->response->results->result[0]->links->comparables;
+echo "<a href=$comparables target='_blank'>$comparables</a>";
 echo "<br>";
 
 //$code = $data->message->code;
