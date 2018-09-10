@@ -26,7 +26,8 @@ $homeDetailLink = $data->response->results->result[0]->links->homedetails;
 echo "<a href=$homeDetailLink target='_blank'>$homeDetailLink</a>";
 echo "<br>";
 echo "graphsanddata: ";
-echo $data->response->results->resut[0]->links->graphsanddata;
+$graphs = $data->response->results->resut[0]->links->graphsanddata;
+echo $graphs;
 echo "<br>";
 
 //$code = $data->message->code;
