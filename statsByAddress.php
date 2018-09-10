@@ -35,6 +35,12 @@ $comparables = $data->response->results->result[0]->links->comparables;
 echo "<a href=$comparables target='_blank'>$comparables</a>";
 echo "<br>";
 
+echo "<h4>Zestimate</h4>";
+echo "amount: ";
+$zestimateAmount = $data->response->results->result[0]->zestimate->amount;
+echo $zesimateAmount;
+echo "<br>";
+
 //$code = $data->message->code;
 //echo 'message code: ',$code;
 //echo '<br>';
