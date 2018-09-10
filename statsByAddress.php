@@ -38,7 +38,7 @@ echo "<br>";
 echo "<h4>Zestimate</h4>";
 echo "amount: ";
 $zestimateAmount = $data->response->results->result[0]->zestimate->amount;
-echo $zesimateAmount;
+echo $zestimateAmount;
 echo "<br>";
 
 //$code = $data->message->code;
