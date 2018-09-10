@@ -40,6 +40,11 @@ echo "amount: ";
 $zestimateAmount = $data->response->results->result[0]->zestimate->amount;
 echo $zestimateAmount;
 echo "<br>";
+echo "percentile: ";
+$zestimatePercentile = $data->response->results->result[0]->zestimate->percentile;
+echo $zestimatePercentile;
+echo "<br>";
+
 
 //$code = $data->message->code;
 //echo 'message code: ',$code;
