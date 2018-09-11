@@ -10,9 +10,7 @@ $csz = $cit."%2C+".$stat;
 $query = $prefixurl."?zws-id=".$zwsid."&address=".$addr."&citystatezip=".$csz."&rentzestimate=true";
 $sxml = simplexml_load_file(trim($query));
 echo json_encode($sxml);
-if($sxml)
-	echo "Success";
-else 
-	echo "Failure";
+
+echo $query;
 
 ?>
