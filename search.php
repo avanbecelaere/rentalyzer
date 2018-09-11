@@ -27,7 +27,7 @@ echo "<br>";
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
-$code = $data->message->code;
+$code = $detailsresult->message->code;
 echo 'message code: ',$code;
 echo "<br>";
 if ($code == 0){
