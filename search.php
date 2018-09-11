@@ -12,8 +12,8 @@ $zpid = $result->response->results->result[0]->zpid;
 //echo json_encode($result);
 
 echo "<h1><center>Results For</center></h1>";
-echo "<center>$search<br>";
-echo "$citystate";
+echo "<center>$addr<br>";
+echo "$cit, $stat";
 echo "<br>";
 echo "zpid: ";
 echo $zpid;
