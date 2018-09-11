@@ -28,5 +28,8 @@ $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
 echo json_encode($detailsresult);
+echo "<br>";
+echo "detailsquery: ";
+echo "<a href=$detailsquery target='_blank'>$detailsquery</a>";
 
 ?>
