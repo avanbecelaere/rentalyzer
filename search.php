@@ -11,7 +11,7 @@ $result = simplexml_load_file(trim($query));
 echo json_encode($result);
 
 $zestimate = money_format('%n',floatval($result->response->results->result->zestimate->amount));
-$zpid = $data->response->results->result[0]->zpid;
+$zpid = $result->response->results->result[0]->zpid;
 echo "<br>";
 echo "zpid: ";
 echo $zpid;
