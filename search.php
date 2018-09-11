@@ -2,7 +2,7 @@
 include_once("../config");
 
 $prefixurl = "http://www.zillow.com/webservice/GetSearchResults.htm";
-$addr = urlencode("3227 Lockridge Ave");
+$addr = urlencode("3323 Cleveland Ave");
 $cit = urlencode("Kansas City");
 $stat = urlencode("MO");
 $csz = $cit."%2C+".$stat;
