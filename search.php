@@ -27,7 +27,10 @@ echo "<br>";
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
-if ($detailsresult){
+$code = $data->message->code;
+echo 'message code: ',$code;
+echo "<br>";
+if ($code == 0){
 	echo json_encode($detailsresult);
 	echo "<br>";
 	echo "detailsquery: ";
