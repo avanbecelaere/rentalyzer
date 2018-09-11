@@ -8,13 +8,18 @@ $stat = urlencode("MO");
 $csz = $cit."%2C+".$stat;
 $query = $prefixurl."?zws-id=".$zwsid."&address=".$addr."&citystatezip=".$csz."&rentzestimate=true";
 $result = simplexml_load_file(trim($query));
-echo json_encode($result);
-
-$zestimate = money_format('%n',floatval($result->response->results->result->zestimate->amount));
 $zpid = $result->response->results->result[0]->zpid;
+//echo json_encode($result);
+
+echo "<h1><center>Results For</center></h1>";
+echo "<center>$search<br>";
+echo "$citystate";
 echo "<br>";
 echo "zpid: ";
 echo $zpid;
+echo "</center><br><br>";
+
+$zestimate = money_format('%n',floatval($result->response->results->result->zestimate->amount));
 
 echo "<br>";
 echo "query: ";
