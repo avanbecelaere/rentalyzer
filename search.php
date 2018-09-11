@@ -2,9 +2,12 @@
 include_once("../config");
 
 $prefixurl = "http://www.zillow.com/webservice/GetSearchResults.htm";
-$addr = urlencode("3323 Cleveland Ave");
-$cit = urlencode("Kansas City");
-$stat = urlencode("MO");
+$address = ("3323 Cleveland Ave");
+$city = ("Kansas City");
+$state = ("MO");
+$addr = urlencode($address);
+$cit = urlencode($city);
+$stat = urlencode($state);
 $csz = $cit."%2C+".$stat;
 $query = $prefixurl."?zws-id=".$zwsid."&address=".$addr."&citystatezip=".$csz."&rentzestimate=true";
 $result = simplexml_load_file(trim($query));
