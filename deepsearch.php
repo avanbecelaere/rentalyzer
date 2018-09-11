@@ -11,11 +11,11 @@ $query = $prefixurl."?zws-id=".$zwsid."&address=".$addr."&citystatezip=".$csz."&
 $sxml = simplexml_load_file(trim($query));
 echo json_encode($sxml);
 
-$zestimate = money_format('%n',floatval($s->response->results->result->zestimate->amount));
+$zestimate = money_format('%n',floatval($sxml->response->results->result->zestimate->amount));
 
 echo "<br>";
 echo "query: ";
-echo $query;
+echo "<a href=$query target='_blank'>$query</a>";
 echo "<br>";
 echo "zestimate: ";
 echo $zestimate;
