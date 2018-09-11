@@ -1,6 +1,6 @@
 <?php
 include_once("../config");
-$zillow_id = $zid; //the zillow web service ID that you got from your email
+$zwsid = $zid; //the zillow web service ID that you got from your email
 
 #$search = $_GET['address'];
 #$citystate = $_GET['citystate'];
@@ -9,7 +9,7 @@ $citystate = "Kansas City, MO";
 $address = urlencode($search);
 $citystatezip = urlencode($citystate);
 
-$url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=$zillow_id&address=$address&citystatezip=$citystatezip";
+$url = "http://www.zillow.com/webservice/GetSearchResults.htm?zws-id=$zwsid&address=$address&citystatezip=$citystatezip";
 
 $result = file_get_contents($url);
 $data = simplexml_load_string($result);
