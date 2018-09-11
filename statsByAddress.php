@@ -1,6 +1,6 @@
 <?php
 include_once("../config");
-$zwsid = $zid; //the zillow web service ID that you got from your email
+$zwsid = $zid;
 
 #$search = $_GET['address'];
 #$citystate = $_GET['citystate'];

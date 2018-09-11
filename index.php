@@ -7,6 +7,13 @@
 echo "<h1>Welcome to rentalyzer.com</h1>";
 ?>
 <br>
-<a href="statsByAddress.php">Stats by Address</a>
+<a href="search.php">GetSearchResults</a>
+<br>
+<a href="deepsearch.php">GetDeepSearchResults</a>
+<br>
+<a href="propertydetails.php">GetUpdatedPropertyDetails</a>
+<br>
+<a href="zestimate.php">GetZestimate</a>
+
 </body>
 </html>

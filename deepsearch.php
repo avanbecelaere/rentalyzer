@@ -1,6 +1,5 @@
 <?php
 include_once("../config");
-$zwsid = $zid;
 
 $prefixurl = "http://www.zillow.com/webservice/GetDeepSearchResults.htm";
 $addr = urlencode("3227 Lockridge Ave");
