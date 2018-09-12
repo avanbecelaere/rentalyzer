@@ -23,6 +23,7 @@ $zestimate = money_format('%n',floatval($result->response->results->result->zest
 $valuationLow = money_format('%n',floatval($result->response->results->result->zestimate->valuationRange->low));
 $valuationHigh = money_format('%n',floatval($result->response->results->result->zestimate->valuationRange->high));
 $zestimateDate = $result->response->results->result->zestimate->{'last-updated'};
+$thirtyDayChange = $result->response->results->result->zestimate->valueChange;
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
@@ -59,6 +60,8 @@ echo "$city, $state $zipcode</center><br>";
 			echo "<td>\$$zestimate (\$$valuationLow - \$$valuationHigh)</td></tr> \n";
 			echo "<tr><td>Zestimate Date</td> \n";
 			echo "<td>$zestimateDate</td></tr> \n";
+			echo "<tr><td>30 Day Change</td> \n";
+			echo "<td>$thirtyDayChange</td></tr> \n";
 			echo "<tr><td>Updates</td> \n";
 			echo "<td>$updates</td></tr> \n";
 
