@@ -15,6 +15,7 @@ $result = simplexml_load_file(trim($query));
 $zpid = $result->response->results->result->zpid;
 
 // Response Data & Calculations
+$link = $data->response->results->result->links->homedetails;
 $street = $result->response->results->result->address->street;
 $city = $result->response->results->result->address->city;
 $state = $result->response->results->result->address->state;
@@ -28,10 +29,11 @@ $rentZestimate = money_format('%n',floatval($result->response->results->result->
 $rentValuationLow = money_format('%n',floatval($result->response->results->result->rentzestimate->valuationRange->low));
 $rentValuationHigh = money_format('%n',floatval($result->response->results->result->rentzestimate->valuationRange->high));
 $rentZestimateDate = $result->response->results->result->rentzestimate->{'last-updated'};
+
+// Updates API Call
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
-
 $code = $detailsresult->message->code;
 if ($code == 0){
 	$updates = "<a href=$detailsquery target='_blank'>$detailsquery</a>";
@@ -41,8 +43,8 @@ else
 
 // Header Output
 echo "<h1><center>Search Results For</center></h1>";
-echo "<center>$street<br>";
-echo "$city, $state $zipcode</center><br>";
+echo "<center><a href=$link target='_blank'>$street<br>";
+echo "$city, $state $zipcode</a></center><br>";
 ?>
 
 <!-- Table Output -->
