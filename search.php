@@ -23,7 +23,7 @@ $zestimate = money_format('%n',floatval($result->response->results->result->zest
 $valuationLow = money_format('%n',floatval($result->response->results->result->zestimate->valuationRange->low));
 $valuationHigh = money_format('%n',floatval($result->response->results->result->zestimate->valuationRange->high));
 $zestimateDate = $result->response->results->result->zestimate->{'last-updated'};
-$thirtyDayChange = $result->response->results->result->zestimate->valueChange;
+$thirtyDayChange = money_format('%n',floatval($result->response->results->result->zestimate->valueChange));
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
