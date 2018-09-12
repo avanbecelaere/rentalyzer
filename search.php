@@ -12,7 +12,7 @@ $reqstateurl = urlencode($reqstate);
 $reqcsz = $reqcityurl."%2C+".$reqstateurl;
 $query = $prefixurl."?zws-id=".$zwsid."&address=".$reqstreeturl."&citystatezip=".$reqcsz."&rentzestimate=true";
 $result = simplexml_load_file(trim($query));
-$zpid = $result->response->results->result[0]->zpid;
+$zpid = $result->response->results->result->zpid;
 
 // Response Data & Calculations
 $address = $result->response->results->result->address->street;
