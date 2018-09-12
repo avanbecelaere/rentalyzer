@@ -15,7 +15,7 @@ $result = simplexml_load_file(trim($query));
 $zpid = $result->response->results->result[0]->zpid;
 
 // Response Data & Calculations
-$address = $result->response->results->address->street;
+$address = $result->response->results->result->address->street;
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
