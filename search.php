@@ -20,11 +20,9 @@ echo "$city, $state";
 echo "<br>";
 echo "zpid: ";
 echo $zpid;
-echo "</center><br><br>";
+echo "</center><br>";
 
 $zestimate = money_format('%n',floatval($result->response->results->result->zestimate->amount));
-
-// echo "<br>";
 
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
