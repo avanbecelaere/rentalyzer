@@ -37,10 +37,10 @@ $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
 $code = $detailsresult->message->code;
 if ($code == 0){
-	updates = "<a href=$detailsquery target='_blank'>$detailsquery</a>";
+	$updates = "<a href=$detailsquery target='_blank'>$detailsquery</a>";
 }
 else
-	updates = "No Updates ($code)";
+	$updates = "No Updates ($code)";
 ?>
 
 <br>
