@@ -19,10 +19,12 @@ $street = $result->response->results->result->address->street;
 $city = $result->response->results->result->address->city;
 $state = $result->response->results->result->address->state;
 $zipcode = $result->response->results->result->address->zipcode;
+$zestimate = money_format('%n',floatval($result->response->results->result->zestimate->amount));
+$valuationLow = money_format('%n',floatval($result->response->results->result->zestimate->valuationRange->low));
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
-$zestimate = money_format('%n',floatval($result->response->results->result->zestimate->amount));
+
 $code = $detailsresult->message->code;
 if ($code == 0){
 	$updates = "<a href=$detailsquery target='_blank'>$detailsquery</a>";
@@ -52,7 +54,7 @@ echo "$city, $state $zipcode</center><br>";
 			echo "<tr><td>Query</td> \n";
 			echo "<td><a href=$query target='_blank'>$query</a></td></tr> \n";
 			echo "<tr><td>Zestimate</td> \n";
-			echo "<td>$zestimate</td></tr> \n";
+			echo "<td>$zestimate ($valuationLow - $valuationLow)</td></tr> \n";
 			echo "<tr><td>Updates</td> \n";
 			echo "<td>$updates</td></tr> \n";
 
