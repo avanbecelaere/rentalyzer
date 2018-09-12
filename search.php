@@ -66,7 +66,7 @@ echo "$city, $state $zipcode</a></center><br>";
 			echo "<tr><td>ZPID</td> \n";
 			echo "<td>$zpid</td></tr> \n";
 			echo "<tr><td>Search Query</td> \n";
-			echo "<td><a href=$query target='_blank'>$querySearch</a></td></tr> \n";
+			echo "<td><a href=$querySearch target='_blank'>$querySearch</a></td></tr> \n";
 			echo "<tr><td>Zestimate</td> \n";
 			echo "<td>\$$zestimate (\$$valuationLow - \$$valuationHigh)</td></tr> \n";
 			echo "<tr><td>Zestimate Date</td> \n";
@@ -80,7 +80,7 @@ echo "$city, $state $zipcode</a></center><br>";
 			echo "<tr><td>Updates</td> \n";
 			echo "<td>$updates</td></tr> \n";
 			echo "<tr><td>DeepSearch Query</td> \n";
-			echo "<td><a href=$query target='_blank'>$queryDeepSearch</a></td></tr> \n";
+			echo "<td><a href=$queryDeepSearch target='_blank'>$queryDeepSearch</a></td></tr> \n";
 
 
 		?>
