@@ -55,7 +55,7 @@ echo "$city, $state $zipcode</center><br>";
 			echo "<tr><td>Query</td> \n";
 			echo "<td><a href=$query target='_blank'>$query</a></td></tr> \n";
 			echo "<tr><td>Zestimate</td> \n";
-			echo "<td>$zestimate (\$$valuationLow - $valuationHigh)</td></tr> \n";
+			echo "<td>\$$zestimate (\$$valuationLow - \$$valuationHigh)</td></tr> \n";
 			echo "<tr><td>Updates</td> \n";
 			echo "<td>$updates</td></tr> \n";
 
