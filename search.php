@@ -47,3 +47,24 @@ else
 
 
 ?>
+
+<table>
+	<thead>
+		<tr>
+			<th>Label</th>
+			<th>Value</th>
+		</tr>
+	</thead>
+	<tbody>
+		<?php
+			//Display Table Data
+			echo "<tr><td>Query</td> \n";
+			echo "<td><a href=$query target='_blank'>$query</a></td> \n";
+			echo "</tr> \n";
+			echo "<tr><td>Zestimate</td> \n";
+			echo "<td>$zestimate</td> \n";
+			echo "</tr> \n";
+
+		?>
+	</tbody>
+</table>
