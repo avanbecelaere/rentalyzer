@@ -10,13 +10,9 @@ $reqcityurl = urlencode($reqcity);
 $reqstateurl = urlencode($reqstate);
 $reqcsz = $reqcityurl."%2C+".$reqstateurl;
 
-$prefixurlSearch = "http://www.zillow.com/webservice/GetSearchResults.htm";
-$querySearch = $prefixurlSearch."?zws-id=".$zwsid."&address=".$reqstreeturl."&citystatezip=".$reqcsz."&rentzestimate=true";
-$search = simplexml_load_file(trim($querySearch));
-
-$prefixurlDeepSearch = "http://www.zillow.com/webservice/GetDeepSearchResults.htm";
-$queryDeepSearch = $prefixurlDeepSearch."?zws-id=".$zwsid."&address=".$reqstreeturl."&citystatezip=".$reqcsz."&rentzestimate=true";
-$deepSearch = simplexml_load_file(trim($queryDeepSearch));
+$prefixurl = "http://www.zillow.com/webservice/GetDeepSearchResults.htm";
+$query = $prefixurl."?zws-id=".$zwsid."&address=".$reqstreeturl."&citystatezip=".$reqcsz."&rentzestimate=true";
+$search = simplexml_load_file(trim($query));
 
 // Response Data & Calculations
 $zpid = $search->response->results->result->zpid;
@@ -66,7 +62,7 @@ echo "$city, $state $zipcode</a></center><br>";
 			echo "<tr><td>ZPID</td> \n";
 			echo "<td>$zpid</td></tr> \n";
 			echo "<tr><td>Search Query</td> \n";
-			echo "<td><a href=$querySearch target='_blank'>$querySearch</a></td></tr> \n";
+			echo "<td><a href=$query target='_blank'>$query</a></td></tr> \n";
 			echo "<tr><td>Zestimate</td> \n";
 			echo "<td>\$$zestimate (\$$valuationLow - \$$valuationHigh)</td></tr> \n";
 			echo "<tr><td>Zestimate Date</td> \n";
@@ -79,9 +75,6 @@ echo "$city, $state $zipcode</a></center><br>";
 			echo "<td>$rentZestimateDate</td></tr> \n";
 			echo "<tr><td>Updates</td> \n";
 			echo "<td>$updates</td></tr> \n";
-			echo "<tr><td>DeepSearch Query</td> \n";
-			echo "<td><a href=$queryDeepSearch target='_blank'>$queryDeepSearch</a></td></tr> \n";
-
 
 		?>
 	</tbody>
