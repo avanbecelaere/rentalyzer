@@ -37,16 +37,13 @@ $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
 $code = $detailsresult->message->code;
 if ($code == 0){
-	echo json_encode($detailsresult);
-	echo "<br>";
-	echo "detailsquery: ";
-	echo "<a href=$detailsquery target='_blank'>$detailsquery</a>";
+	updates = "<a href=$detailsquery target='_blank'>$detailsquery</a>";
 }
 else
-	echo "No Updates ($code)";
-
-
+	updates = "No Updates ($code)";
 ?>
+
+<br>
 <br>
 <table border=1>
 	<thead>
@@ -59,11 +56,12 @@ else
 		<?php
 			//Display Table Data
 			echo "<tr><td>Query</td> \n";
-			echo "<td><a href=$query target='_blank'>$query</a></td> \n";
-			echo "</tr> \n";
+			echo "<td><a href=$query target='_blank'>$query</a></td></tr> \n";
 			echo "<tr><td>Zestimate</td> \n";
-			echo "<td>$zestimate</td> \n";
-			echo "</tr> \n";
+			echo "<td>$zestimate</td></tr> \n";
+			echo "<tr><td>Updates</td> \n";
+			echo "<td>$updates</td></tr> \n";
+
 
 		?>
 	</tbody>
