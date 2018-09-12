@@ -1,8 +1,7 @@
 <?php
 include_once("../config");
 
-// Request Data
-$prefixurl = "http://www.zillow.com/webservice/GetSearchResults.htm";
+// Search Request Data
 $reqstreet = ("3323 Cleveland Ave");
 $reqcity = ("Kansas City");
 $reqstate = ("MO");
@@ -10,25 +9,31 @@ $reqstreeturl = urlencode($reqstreet);
 $reqcityurl = urlencode($reqcity);
 $reqstateurl = urlencode($reqstate);
 $reqcsz = $reqcityurl."%2C+".$reqstateurl;
-$query = $prefixurl."?zws-id=".$zwsid."&address=".$reqstreeturl."&citystatezip=".$reqcsz."&rentzestimate=true";
-$result = simplexml_load_file(trim($query));
-$zpid = $result->response->results->result->zpid;
+
+$prefixurlSearch = "http://www.zillow.com/webservice/GetSearchResults.htm";
+$querySearch = $prefixurlSearch."?zws-id=".$zwsid."&address=".$reqstreeturl."&citystatezip=".$reqcsz."&rentzestimate=true";
+$search = simplexml_load_file(trim($querySearch));
+
+$prefixurlDeepSearch = "http://www.zillow.com/webservice/GetDeepSearchResults.htm";
+$queryDeepSearch = $prefixurlDeepSearch."?zws-id=".$zwsid."&address=".$reqstreeturl."&citystatezip=".$reqcsz."&rentzestimate=true";
+$deepSearch = simplexml_load_file(trim($queryDeepSearch));
 
 // Response Data & Calculations
-$link = $result->response->results->result->links->homedetails;
-$street = $result->response->results->result->address->street;
-$city = $result->response->results->result->address->city;
-$state = $result->response->results->result->address->state;
-$zipcode = $result->response->results->result->address->zipcode;
-$zestimate = money_format('%n',floatval($result->response->results->result->zestimate->amount));
-$valuationLow = money_format('%n',floatval($result->response->results->result->zestimate->valuationRange->low));
-$valuationHigh = money_format('%n',floatval($result->response->results->result->zestimate->valuationRange->high));
-$zestimateDate = $result->response->results->result->zestimate->{'last-updated'};
-$thirtyDayChange = money_format('%n',floatval($result->response->results->result->zestimate->valueChange));
-$rentZestimate = money_format('%n',floatval($result->response->results->result->rentzestimate->amount));
-$rentValuationLow = money_format('%n',floatval($result->response->results->result->rentzestimate->valuationRange->low));
-$rentValuationHigh = money_format('%n',floatval($result->response->results->result->rentzestimate->valuationRange->high));
-$rentZestimateDate = $result->response->results->result->rentzestimate->{'last-updated'};
+$zpid = $search->response->results->result->zpid;
+$link = $search->response->results->result->links->homedetails;
+$street = $search->response->results->result->address->street;
+$city = $search->response->results->result->address->city;
+$state = $search->response->results->result->address->state;
+$zipcode = $search->response->results->result->address->zipcode;
+$zestimate = money_format('%n',floatval($search->response->results->result->zestimate->amount));
+$valuationLow = money_format('%n',floatval($search->response->results->result->zestimate->valuationRange->low));
+$valuationHigh = money_format('%n',floatval($search->response->results->result->zestimate->valuationRange->high));
+$zestimateDate = $search->response->results->result->zestimate->{'last-updated'};
+$thirtyDayChange = money_format('%n',floatval($search->response->results->result->zestimate->valueChange));
+$rentZestimate = money_format('%n',floatval($search->response->results->result->rentzestimate->amount));
+$rentValuationLow = money_format('%n',floatval($search->response->results->result->rentzestimate->valuationRange->low));
+$rentValuationHigh = money_format('%n',floatval($search->response->results->result->rentzestimate->valuationRange->high));
+$rentZestimateDate = $search->response->results->result->rentzestimate->{'last-updated'};
 
 // Updates API Call
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
@@ -60,8 +65,8 @@ echo "$city, $state $zipcode</a></center><br>";
 			// Display Table Data
 			echo "<tr><td>ZPID</td> \n";
 			echo "<td>$zpid</td></tr> \n";
-			echo "<tr><td>Query</td> \n";
-			echo "<td><a href=$query target='_blank'>$query</a></td></tr> \n";
+			echo "<tr><td>Search Query</td> \n";
+			echo "<td><a href=$query target='_blank'>$querySearch</a></td></tr> \n";
 			echo "<tr><td>Zestimate</td> \n";
 			echo "<td>\$$zestimate (\$$valuationLow - \$$valuationHigh)</td></tr> \n";
 			echo "<tr><td>Zestimate Date</td> \n";
@@ -74,6 +79,8 @@ echo "$city, $state $zipcode</a></center><br>";
 			echo "<td>$rentZestimateDate</td></tr> \n";
 			echo "<tr><td>Updates</td> \n";
 			echo "<td>$updates</td></tr> \n";
+			echo "<tr><td>DeepSearch Query</td> \n";
+			echo "<td><a href=$query target='_blank'>$queryDeepSearch</a></td></tr> \n";
 
 
 		?>
