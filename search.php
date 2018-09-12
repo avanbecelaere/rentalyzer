@@ -15,7 +15,7 @@ $result = simplexml_load_file(trim($query));
 $zpid = $result->response->results->result->zpid;
 
 // Response Data & Calculations
-$link = $data->response->results->result->links->homedetails;
+$link = $result->response->results->result->links->homedetails;
 $street = $result->response->results->result->address->street;
 $city = $result->response->results->result->address->city;
 $state = $result->response->results->result->address->state;
