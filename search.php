@@ -15,7 +15,10 @@ $result = simplexml_load_file(trim($query));
 $zpid = $result->response->results->result->zpid;
 
 // Response Data & Calculations
-$address = $result->response->results->result->address->street;
+$street = $result->response->results->result->address->street;
+$city = $result->response->results->result->address->city;
+$state = $result->response->results->result->address->state;
+$zipcode = $result->response->results->result->address->zipcode;
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
@@ -29,15 +32,9 @@ else
 
 // Header Output
 echo "<h1><center>Search Results For</center></h1>";
-echo "<center>$address<br>";
-echo "$city, $state";
-echo "<br>";
-echo "zpid: ";
-echo $zpid;
-echo "</center><br>";
+echo "<center>$street<br>";
+echo "$city, $state $zipcode</center><br>";
 ?>
-
-
 
 <!-- Table Output -->
 <table border=1>
@@ -50,6 +47,8 @@ echo "</center><br>";
 	<tbody>
 		<?php
 			// Display Table Data
+			echo "<tr><td>ZPID</td> \n";
+			echo "<td>$zpid</td></tr> \n";
 			echo "<tr><td>Query</td> \n";
 			echo "<td><a href=$query target='_blank'>$query</a></td></tr> \n";
 			echo "<tr><td>Zestimate</td> \n";
