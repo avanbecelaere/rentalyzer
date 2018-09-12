@@ -25,6 +25,8 @@ $valuationHigh = money_format('%n',floatval($result->response->results->result->
 $zestimateDate = $result->response->results->result->zestimate->{'last-updated'};
 $thirtyDayChange = money_format('%n',floatval($result->response->results->result->zestimate->valueChange));
 $rentZestimate = money_format('%n',floatval($result->response->results->result->rentzestimate->amount));
+$rentValuationLow = money_format('%n',floatval($result->response->results->result->rentzestimate->valuationRange->low));
+$rentValuationHigh = money_format('%n',floatval($result->response->results->result->rentzestimate->valuationRange->high));
 $rentZestimateDate = $result->response->results->result->rentzestimate->{'last-updated'};
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
@@ -65,7 +67,7 @@ echo "$city, $state $zipcode</center><br>";
 			echo "<tr><td>30 Day Change</td> \n";
 			echo "<td>\$$thirtyDayChange</td></tr> \n";
 			echo "<tr><td>Rent Zestimate</td> \n";
-			echo "<td>$rentZestimate</td></tr> \n";
+			echo "<td>\$$rentZestimate (\$$rentValuationLow - \$$rentValuationHigh)</td></tr> \n";
 			echo "<tr><td>Rent Zestimate Date</td> \n";
 			echo "<td>$rentZestimateDate</td></tr> \n";
 			echo "<tr><td>Updates</td> \n";
