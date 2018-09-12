@@ -36,8 +36,7 @@ echo $zpid;
 echo "</center><br>";
 ?>
 
-<br>
-<br>
+
 
 <!-- Table Output -->
 <table border=1>
