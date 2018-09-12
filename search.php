@@ -24,13 +24,7 @@ echo "</center><br><br>";
 
 $zestimate = money_format('%n',floatval($result->response->results->result->zestimate->amount));
 
-echo "<br>";
-echo "query: ";
-echo "<a href=$query target='_blank'>$query</a>";
-echo "<br>";
-echo "zestimate: ";
-echo $zestimate;
-echo "<br>";
+// echo "<br>";
 
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
