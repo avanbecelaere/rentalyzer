@@ -22,6 +22,7 @@ $zipcode = $result->response->results->result->address->zipcode;
 $zestimate = money_format('%n',floatval($result->response->results->result->zestimate->amount));
 $valuationLow = money_format('%n',floatval($result->response->results->result->zestimate->valuationRange->low));
 $valuationHigh = money_format('%n',floatval($result->response->results->result->zestimate->valuationRange->high));
+$zestimateDate = $result->response->results->result->zestimate->last-updated;
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
@@ -31,7 +32,7 @@ if ($code == 0){
 	$updates = "<a href=$detailsquery target='_blank'>$detailsquery</a>";
 }
 else
-	$updates = "No Updates ($code)";
+	$updates = "No Updates (error code $code)";
 
 // Header Output
 echo "<h1><center>Search Results For</center></h1>";
@@ -56,6 +57,8 @@ echo "$city, $state $zipcode</center><br>";
 			echo "<td><a href=$query target='_blank'>$query</a></td></tr> \n";
 			echo "<tr><td>Zestimate</td> \n";
 			echo "<td>\$$zestimate (\$$valuationLow - \$$valuationHigh)</td></tr> \n";
+			echo "<tr><td>Zestimate Date</td> \n";
+			echo "<td>$zestimateDate</td></tr> \n";
 			echo "<tr><td>Updates</td> \n";
 			echo "<td>$updates</td></tr> \n";
 
