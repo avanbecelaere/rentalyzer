@@ -3,18 +3,19 @@ include_once("../config");
 
 // Request Data
 $prefixurl = "http://www.zillow.com/webservice/GetSearchResults.htm";
-$address = ("3323 Cleveland Ave");
-$city = ("Kansas City");
-$state = ("MO");
-$addr = urlencode($address);
-$cit = urlencode($city);
-$stat = urlencode($state);
-$csz = $cit."%2C+".$stat;
-$query = $prefixurl."?zws-id=".$zwsid."&address=".$addr."&citystatezip=".$csz."&rentzestimate=true";
+$reqstreet = ("3323 Cleveland Ave");
+$reqcity = ("Kansas City");
+$reqstate = ("MO");
+$reqstreeturl = urlencode($reqstreet);
+$reqcityurl = urlencode($reqcity);
+$reqstateurl = urlencode($reqstate);
+$reqcsz = $reqcityurl."%2C+".$reqstateurl;
+$query = $prefixurl."?zws-id=".$zwsid."&address=".$reqstreeturl."&citystatezip=".$reqcsz."&rentzestimate=true";
 $result = simplexml_load_file(trim($query));
 $zpid = $result->response->results->result[0]->zpid;
 
 // Response Data & Calculations
+$address = 
 $prefixurldetails = "http://www.zillow.com/webservice/GetUpdatedPropertyDetails.htm";
 $detailsquery = $prefixurldetails."?zws-id=".$zwsid."&zpid=".$zpid;
 $detailsresult = simplexml_load_file(trim($detailsquery));
