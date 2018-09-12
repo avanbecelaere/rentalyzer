@@ -61,7 +61,7 @@ echo "$city, $state $zipcode</center><br>";
 			echo "<tr><td>Zestimate Date</td> \n";
 			echo "<td>$zestimateDate</td></tr> \n";
 			echo "<tr><td>30 Day Change</td> \n";
-			echo "<td>$thirtyDayChange</td></tr> \n";
+			echo "<td>\$$thirtyDayChange</td></tr> \n";
 			echo "<tr><td>Updates</td> \n";
 			echo "<td>$updates</td></tr> \n";
 
