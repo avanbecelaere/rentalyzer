@@ -1,13 +1,14 @@
 <?php
 include_once("../config");
 
-echo $_POST['reqstreet'];
-echo "<br>";
+$reqstreet = $_POST['reqstreet'];
+$reqcity = $_POST['reqcity'];
+$reqstate = $_POST['reqstate'];
 
 // Search Request Data
-$reqstreet = ("3323 Cleveland Ave");
-$reqcity = ("Kansas City");
-$reqstate = ("MO");
+// $reqstreet = ("3323 Cleveland Ave");
+// $reqcity = ("Kansas City");
+// $reqstate = ("MO");
 $reqstreeturl = urlencode($reqstreet);
 $reqcityurl = urlencode($reqcity);
 $reqstateurl = urlencode($reqstate);
