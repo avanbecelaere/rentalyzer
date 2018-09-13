@@ -7,9 +7,9 @@
 		<br>
 		<a href="search.php">GetSearchResults</a>
 		<br>
-		<h3 class="panel-title">Submit Address or Zillow ID</h3>
+		<h3 class="panel-title">Submit Address or Zillow ID</h3></center>
 		<form id="defaultForm" method="post" class="form-horizontal" role="form">
-			<label>Street</label>
+			<center><label>Street</label>
 			<input type="text" class="form-control" placeholder="Street" name="street" value=""><br><br>
 			<label>City</label>
 			<input type="text" class="form-control" placeholder="City" name="city" value=""><br><br>
