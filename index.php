@@ -10,7 +10,7 @@
 		<h3 class="panel-title">Submit Address or Zillow ID</h3>
 		<form id="defaultForm" method="post" class="form-horizontal" role="form">
 			<label>Street</label>
-			<input type="text" class="form-control" placeholder="Street" name="street" value="">
+			<input type="text" class="form-control" placeholder="Street" name="street" value=""><br>
 			<label>City</label>
 			<input type="text" class="form-control" placeholder="City" name="city" value="">
 			<label>State</label>
