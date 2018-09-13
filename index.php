@@ -3,13 +3,13 @@
 	<head>
 	</head>
 	<body>
-		<h1><center>Welcome to rentalyzer.com</center></h1>
+		<h1><center>Welcome to rentalyzer.com</h1>
 		<br>
 		<a href="search.php">GetSearchResults</a>
 		<br>
 		<h3 class="panel-title">Submit Address or Zillow ID</h3>
 		<form id="defaultForm" method="post" class="form-horizontal" role="form">
-			<center><label>Street</label>
+			<label>Street</label>
 			<input type="text" class="form-control" placeholder="Street" name="street" value=""><br><br>
 			<label>City</label>
 			<input type="text" class="form-control" placeholder="City" name="city" value=""><br><br>
