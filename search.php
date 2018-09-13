@@ -1,6 +1,9 @@
 <?php
 include_once("../config");
 
+echo $_POST['reqstreet'];
+echo "<br>";
+
 // Search Request Data
 $reqstreet = ("3323 Cleveland Ave");
 $reqcity = ("Kansas City");
